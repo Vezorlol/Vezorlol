@@ -24,10 +24,10 @@ jobs:
             CODE_SIGNING_ALLOWED=NO | tail -40
       - name: Archive unsigned IPA
         run: |
-          cd App
+          cd App && mkdir -p build
           xcodebuild archive -project GiftCases.xcodeproj -scheme GiftCases \
             -destination 'generic/platform=iOS' -archivePath build/GiftCases.xcarchive \
-            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" | tail -40
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" > build/archive.log 2>&1 || { grep -E "error:" build/archive.log | sort -u | head -40; exit 1; }
           mkdir -p build/ipa/Payload
           cp -R build/GiftCases.xcarchive/Products/Applications/GiftCases.app build/ipa/Payload/
           (cd build/ipa && zip -qr ../GiftCases-unsigned.ipa Payload)
