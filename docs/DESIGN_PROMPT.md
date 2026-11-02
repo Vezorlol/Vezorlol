@@ -82,3 +82,39 @@ Return an annotated spec (colors, sizes, fonts) I can hand to a developer.
 1. Подарки: сохранить как `gift_<id>.png` (id из `gifts_catalog.json`, например `gift_heart.png`) и положить в `App/Resources/Assets.xcassets/gift_<id>.imageset/`. Приложение подхватит их автоматически вместо эмодзи.
 2. Кейсы: `case_1.png`...`case_9.png`, `case_pepe.png` — попросите меня подключить, я добавлю показ в сетке кейсов.
 3. Иконка приложения: заменить `AppIcon.appiconset/icon-1024.png`.
+
+---
+
+# Дополнение: подарки в стиле кейсов + все улучшения (v2, заменяет «Часть 2»)
+
+**Про «все подарки и все улучшения».** В Telegram у каждой коллекции десятки моделей и узоров, а фонов — общий набор из десятков цветов.
+Придумывать их нельзя — ChatGPT не знает настоящий список и начинает выдумывать «линейки улучшений».
+Настоящие данные берём из API Telegram скриптом `tools/export_telegram_attributes.py` (запускаете вы, вечером на Windows),
+он даёт `telegram_gift_attributes.json`. Я встрою его в игру: настоящие названия моделей/узоров, их редкость в ‰ и 4 цвета каждого фона.
+
+**Что генерировать в ChatGPT (реально по объёму):**
+- По одной базовой картинке на каждую из 124 коллекций (в стиле кейсов) — 124 картинки.
+- Варианты моделей/узоров в игре показываются автоматически: сдвигом цвета и подписью с настоящим названием модели. Рисовать каждую модель вручную (это тысячи картинок) не нужно.
+- Фоны и узоры рисуются кодом по данным из JSON (радиальный градиент + кольца символов), как в Telegram.
+
+## Промпт: базовая картинка коллекции в стиле кейсов (по 9 за раз)
+
+```
+Same glossy 3D toy-like style as the case illustrations: soft studio lighting, rim light,
+rich saturated colors, tiny sparkles, transparent background, 1024x1024, no text, no logos.
+Make ORIGINAL artwork (do not copy any existing brand or Telegram's official gift art).
+Create a 3x3 sheet of 9 separate collectible objects, equal spacing, each centered with a few
+small stars floating around it (like the items orbiting a case):
+[ВСТАВИТЬ 9 НАЗВАНИЙ ИЗ docs/COLLECTIONS.txt]
+After the sheet, give me each object as a separate transparent PNG named <collection_id>.png.
+```
+
+## Промпт: «улучшенные» версии — только то, что действительно есть
+
+```
+Do NOT invent upgrade tiers, gold plating or crowns. In the real system an upgraded gift is the SAME object
+with a different MODEL variant (different character/outfit/colors), a different BACKGROUND (a color gradient)
+and a repeating PATTERN of small symbols behind it. I will give you the real model names for one collection;
+draw one variant per model name, same object, same pose, different color scheme / outfit that fits the name,
+transparent background. Collection: <name>. Models: <list from telegram_gift_attributes.json>
+```
