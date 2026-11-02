@@ -1,0 +1,1704 @@
+{
+  "meta": {
+    "currency": "⭐ (игровые звёзды, не настоящие)",
+    "tonToStars": 85,
+    "source": "floor-цены floorprice.is, 02.11.2026, ×85 и округлено",
+    "avgAttributeMultiplier": 1.25
+  },
+  "regularGifts": [
+    {
+      "id": "heart",
+      "name": "💝 Сердце",
+      "price": 15,
+      "sellPrice": 13
+    },
+    {
+      "id": "bear",
+      "name": "🧸 Мишка",
+      "price": 15,
+      "sellPrice": 13
+    },
+    {
+      "id": "giftbox",
+      "name": "🎁 Подарок",
+      "price": 25,
+      "sellPrice": 21
+    },
+    {
+      "id": "rose",
+      "name": "🌹 Роза",
+      "price": 25,
+      "sellPrice": 21
+    },
+    {
+      "id": "cake",
+      "name": "🎂 Торт",
+      "price": 50,
+      "sellPrice": 42
+    },
+    {
+      "id": "bouquet",
+      "name": "💐 Букет",
+      "price": 50,
+      "sellPrice": 42
+    },
+    {
+      "id": "rocket",
+      "name": "🚀 Ракета",
+      "price": 50,
+      "sellPrice": 42
+    },
+    {
+      "id": "champagne",
+      "name": "🍾 Шампанское",
+      "price": 50,
+      "sellPrice": 42
+    },
+    {
+      "id": "trophy",
+      "name": "🏆 Кубок",
+      "price": 100,
+      "sellPrice": 85
+    },
+    {
+      "id": "ring",
+      "name": "💍 Кольцо",
+      "price": 100,
+      "sellPrice": 85
+    },
+    {
+      "id": "diamond",
+      "name": "💎 Бриллиант",
+      "price": 100,
+      "sellPrice": 85
+    }
+  ],
+  "collectibles": [
+    {
+      "id": "plush_pepe",
+      "name": "Plush Pepe",
+      "floor": 538000,
+      "tier": "Legendary",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "algorithm_cup",
+      "name": "Algorithm Cup",
+      "floor": 142000,
+      "tier": "Legendary",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "heart_locket",
+      "name": "Heart Locket",
+      "floor": 108000,
+      "tier": "Legendary",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "intelligence_cup",
+      "name": "Intelligence Cup",
+      "floor": 101000,
+      "tier": "Legendary",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "resistance_dog",
+      "name": "Resistance Dog",
+      "floor": 36700,
+      "tier": "Legendary",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "durovs_cap",
+      "name": "Durov's Cap",
+      "floor": 35500,
+      "tier": "Legendary",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "scared_cat",
+      "name": "Scared Cat",
+      "floor": 23100,
+      "tier": "Epic",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "precious_peach",
+      "name": "Precious Peach",
+      "floor": 22400,
+      "tier": "Epic",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "heroic_helmet",
+      "name": "Heroic Helmet",
+      "floor": 15300,
+      "tier": "Epic",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "loot_bag",
+      "name": "Loot Bag",
+      "floor": 11400,
+      "tier": "Epic",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "durovs_glasses",
+      "name": "Durov's Glasses",
+      "floor": 10900,
+      "tier": "Epic",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "astral_shard",
+      "name": "Astral Shard",
+      "floor": 10200,
+      "tier": "Epic",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "nail_bracelet",
+      "name": "Nail Bracelet",
+      "floor": 10100,
+      "tier": "Epic",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "mighty_arm",
+      "name": "Mighty Arm",
+      "floor": 10100,
+      "tier": "Epic",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "westside_sign",
+      "name": "Westside Sign",
+      "floor": 9690,
+      "tier": "Epic",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "perfume_bottle",
+      "name": "Perfume Bottle",
+      "floor": 7140,
+      "tier": "Epic",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "artisan_brick",
+      "name": "Artisan Brick",
+      "floor": 6150,
+      "tier": "Epic",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "mini_oscar",
+      "name": "Mini Oscar",
+      "floor": 6070,
+      "tier": "Epic",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "ion_gem",
+      "name": "Ion Gem",
+      "floor": 5980,
+      "tier": "Rare",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "gem_signet",
+      "name": "Gem Signet",
+      "floor": 5820,
+      "tier": "Rare",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "low_rider",
+      "name": "Low Rider",
+      "floor": 5270,
+      "tier": "Rare",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "magic_potion",
+      "name": "Magic Potion",
+      "floor": 5030,
+      "tier": "Rare",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "swiss_watch",
+      "name": "Swiss Watch",
+      "floor": 4930,
+      "tier": "Rare",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "kissed_frog",
+      "name": "Kissed Frog",
+      "floor": 4550,
+      "tier": "Rare",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "sharp_tongue",
+      "name": "Sharp Tongue",
+      "floor": 4080,
+      "tier": "Rare",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "bonded_ring",
+      "name": "Bonded Ring",
+      "floor": 3700,
+      "tier": "Rare",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "voodoo_doll",
+      "name": "Voodoo Doll",
+      "floor": 3280,
+      "tier": "Rare",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "neko_helmet",
+      "name": "Neko Helmet",
+      "floor": 3260,
+      "tier": "Rare",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "genie_lamp",
+      "name": "Genie Lamp",
+      "floor": 3200,
+      "tier": "Rare",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "vintage_cigar",
+      "name": "Vintage Cigar",
+      "floor": 3130,
+      "tier": "Rare",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "signet_ring",
+      "name": "Signet Ring",
+      "floor": 2980,
+      "tier": "Rare",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "toy_bear",
+      "name": "Toy Bear",
+      "floor": 2940,
+      "tier": "Rare",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "diamond_ring",
+      "name": "Diamond Ring",
+      "floor": 2860,
+      "tier": "Rare",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "electric_skull",
+      "name": "Electric Skull",
+      "floor": 2460,
+      "tier": "Rare",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "rare_bird",
+      "name": "Rare Bird",
+      "floor": 2460,
+      "tier": "Rare",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "eternal_rose",
+      "name": "Eternal Rose",
+      "floor": 2240,
+      "tier": "Rare",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "khabibs_papakha",
+      "name": "Khabib's Papakha",
+      "floor": 2200,
+      "tier": "Rare",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "bling_binky",
+      "name": "Bling Binky",
+      "floor": 2110,
+      "tier": "Rare",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "cupid_charm",
+      "name": "Cupid Charm",
+      "floor": 1960,
+      "tier": "Rare",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "sky_stilettos",
+      "name": "Sky Stilettos",
+      "floor": 1600,
+      "tier": "Rare",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "lucky_locket",
+      "name": "Lucky Locket",
+      "floor": 1440,
+      "tier": "Uncommon",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "ufc_strike",
+      "name": "UFC Strike",
+      "floor": 1400,
+      "tier": "Uncommon",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "trapped_heart",
+      "name": "Trapped Heart",
+      "floor": 1400,
+      "tier": "Uncommon",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "ionic_dryer",
+      "name": "Ionic Dryer",
+      "floor": 1340,
+      "tier": "Uncommon",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "snoop_cigar",
+      "name": "Snoop Cigar",
+      "floor": 1330,
+      "tier": "Uncommon",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "love_potion",
+      "name": "Love Potion",
+      "floor": 1280,
+      "tier": "Uncommon",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "mad_pumpkin",
+      "name": "Mad Pumpkin",
+      "floor": 1170,
+      "tier": "Uncommon",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "flying_broom",
+      "name": "Flying Broom",
+      "floor": 1150,
+      "tier": "Uncommon",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "crystal_ball",
+      "name": "Crystal Ball",
+      "floor": 1120,
+      "tier": "Uncommon",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "valentine_box",
+      "name": "Valentine Box",
+      "floor": 1100,
+      "tier": "Uncommon",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "skull_flower",
+      "name": "Skull Flower",
+      "floor": 1050,
+      "tier": "Uncommon",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "record_player",
+      "name": "Record Player",
+      "floor": 1030,
+      "tier": "Uncommon",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "love_candle",
+      "name": "Love Candle",
+      "floor": 985,
+      "tier": "Uncommon",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "sakura_flower",
+      "name": "Sakura Flower",
+      "floor": 970,
+      "tier": "Uncommon",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "myth_mask",
+      "name": "Myth Mask",
+      "floor": 900,
+      "tier": "Uncommon",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "top_hat",
+      "name": "Top Hat",
+      "floor": 890,
+      "tier": "Uncommon",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "sleigh_bell",
+      "name": "Sleigh Bell",
+      "floor": 885,
+      "tier": "Uncommon",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "jingle_bells",
+      "name": "Jingle Bells",
+      "floor": 865,
+      "tier": "Uncommon",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "hanging_star",
+      "name": "Hanging Star",
+      "floor": 845,
+      "tier": "Uncommon",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "berry_box",
+      "name": "Berry Box",
+      "floor": 750,
+      "tier": "Uncommon",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "jelly_bunny",
+      "name": "Jelly Bunny",
+      "floor": 720,
+      "tier": "Uncommon",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "joyful_bundle",
+      "name": "Joyful Bundle",
+      "floor": 720,
+      "tier": "Uncommon",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "bunny_muffin",
+      "name": "Bunny Muffin",
+      "floor": 715,
+      "tier": "Uncommon",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "fine_pen",
+      "name": "Fine Pen",
+      "floor": 710,
+      "tier": "Uncommon",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "evil_eye",
+      "name": "Evil Eye",
+      "floor": 700,
+      "tier": "Uncommon",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "witch_hat",
+      "name": "Witch Hat",
+      "floor": 695,
+      "tier": "Uncommon",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "snow_mittens",
+      "name": "Snow Mittens",
+      "floor": 665,
+      "tier": "Uncommon",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "jolly_chimp",
+      "name": "Jolly Chimp",
+      "floor": 665,
+      "tier": "Uncommon",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "surge_board",
+      "name": "Surge Board",
+      "floor": 575,
+      "tier": "Uncommon",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "snow_globe",
+      "name": "Snow Globe",
+      "floor": 570,
+      "tier": "Uncommon",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "santa_hat",
+      "name": "Santa Hat",
+      "floor": 555,
+      "tier": "Uncommon",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "input_key",
+      "name": "Input Key",
+      "floor": 545,
+      "tier": "Uncommon",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "lush_bouquet",
+      "name": "Lush Bouquet",
+      "floor": 545,
+      "tier": "Uncommon",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "spy_agaric",
+      "name": "Spy Agaric",
+      "floor": 540,
+      "tier": "Uncommon",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "light_sword",
+      "name": "Light Sword",
+      "floor": 535,
+      "tier": "Uncommon",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "eternal_candle",
+      "name": "Eternal Candle",
+      "floor": 535,
+      "tier": "Uncommon",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "moon_pendant",
+      "name": "Moon Pendant",
+      "floor": 525,
+      "tier": "Uncommon",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "desk_calendar",
+      "name": "Desk Calendar",
+      "floor": 510,
+      "tier": "Uncommon",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "bow_tie",
+      "name": "Bow Tie",
+      "floor": 500,
+      "tier": "Uncommon",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "faith_amulet",
+      "name": "Faith Amulet",
+      "floor": 495,
+      "tier": "Common",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "spring_basket",
+      "name": "Spring Basket",
+      "floor": 480,
+      "tier": "Common",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "hex_pot",
+      "name": "Hex Pot",
+      "floor": 475,
+      "tier": "Common",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "swag_bag",
+      "name": "Swag Bag",
+      "floor": 470,
+      "tier": "Common",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "snoop_dogg",
+      "name": "Snoop Dogg",
+      "floor": 460,
+      "tier": "Common",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "pretty_posy",
+      "name": "Pretty Posy",
+      "floor": 450,
+      "tier": "Common",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "liberty_figure",
+      "name": "Liberty Figure",
+      "floor": 450,
+      "tier": "Common",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "homemade_cake",
+      "name": "Homemade Cake",
+      "floor": 450,
+      "tier": "Common",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "restless_jar",
+      "name": "Restless Jar",
+      "floor": 450,
+      "tier": "Common",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "cookie_heart",
+      "name": "Cookie Heart",
+      "floor": 440,
+      "tier": "Common",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "money_pot",
+      "name": "Money Pot",
+      "floor": 435,
+      "tier": "Common",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "stellar_rocket",
+      "name": "Stellar Rocket",
+      "floor": 435,
+      "tier": "Common",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "clover_pin",
+      "name": "Clover Pin",
+      "floor": 435,
+      "tier": "Common",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "mousse_cake",
+      "name": "Mousse Cake",
+      "floor": 425,
+      "tier": "Common",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "ginger_cookie",
+      "name": "Ginger Cookie",
+      "floor": 425,
+      "tier": "Common",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "jack_in_the_box",
+      "name": "Jack-in-the-Box",
+      "floor": 425,
+      "tier": "Common",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "winter_wreath",
+      "name": "Winter Wreath",
+      "floor": 415,
+      "tier": "Common",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "party_sparkler",
+      "name": "Party Sparkler",
+      "floor": 415,
+      "tier": "Common",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "b_day_candle",
+      "name": "B-Day Candle",
+      "floor": 405,
+      "tier": "Common",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "holiday_drink",
+      "name": "Holiday Drink",
+      "floor": 400,
+      "tier": "Common",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "victory_medal",
+      "name": "Victory Medal",
+      "floor": 390,
+      "tier": "Common",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "mood_pack",
+      "name": "Mood Pack",
+      "floor": 380,
+      "tier": "Common",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "spiced_wine",
+      "name": "Spiced Wine",
+      "floor": 380,
+      "tier": "Common",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "timeless_book",
+      "name": "Timeless Book",
+      "floor": 375,
+      "tier": "Common",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "hypno_lollipop",
+      "name": "Hypno Lollipop",
+      "floor": 375,
+      "tier": "Common",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "fresh_socks",
+      "name": "Fresh Socks",
+      "floor": 375,
+      "tier": "Common",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "star_notepad",
+      "name": "Star Notepad",
+      "floor": 370,
+      "tier": "Common",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "jester_hat",
+      "name": "Jester Hat",
+      "floor": 365,
+      "tier": "Common",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "easter_egg",
+      "name": "Easter Egg",
+      "floor": 355,
+      "tier": "Common",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "whip_cupcake",
+      "name": "Whip Cupcake",
+      "floor": 350,
+      "tier": "Common",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "happy_brownie",
+      "name": "Happy Brownie",
+      "floor": 350,
+      "tier": "Common",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "pet_snake",
+      "name": "Pet Snake",
+      "floor": 350,
+      "tier": "Common",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "big_year",
+      "name": "Big Year",
+      "floor": 345,
+      "tier": "Common",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "tama_gadget",
+      "name": "Tama Gadget",
+      "floor": 345,
+      "tier": "Common",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "candy_cane",
+      "name": "Candy Cane",
+      "floor": 340,
+      "tier": "Common",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "mirage_lamp",
+      "name": "Mirage Lamp",
+      "floor": 340,
+      "tier": "Common",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "xmas_stocking",
+      "name": "Xmas Stocking",
+      "floor": 340,
+      "tier": "Common",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "instant_ramen",
+      "name": "Instant Ramen",
+      "floor": 340,
+      "tier": "Common",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "pool_float",
+      "name": "Pool Float",
+      "floor": 340,
+      "tier": "Common",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "lol_pop",
+      "name": "Lol Pop",
+      "floor": 335,
+      "tier": "Common",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "vice_cream",
+      "name": "Vice Cream",
+      "floor": 335,
+      "tier": "Common",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "lunar_snake",
+      "name": "Lunar Snake",
+      "floor": 330,
+      "tier": "Common",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "ice_cream",
+      "name": "Ice Cream",
+      "floor": 330,
+      "tier": "Common",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "chill_flame",
+      "name": "Chill Flame",
+      "floor": 330,
+      "tier": "Common",
+      "emojiPlaceholder": ""
+    },
+    {
+      "id": "snake_box",
+      "name": "Snake Box",
+      "floor": 310,
+      "tier": "Common",
+      "emojiPlaceholder": ""
+    }
+  ],
+  "cases": [
+    {
+      "id": "case_1",
+      "name": "Сердечный",
+      "price": 25,
+      "targetRTP": 0.9,
+      "drops": [
+        {
+          "item": "heart",
+          "chancePercent": 32.225
+        },
+        {
+          "item": "bear",
+          "chancePercent": 32.225
+        },
+        {
+          "item": "giftbox",
+          "chancePercent": 13.151
+        },
+        {
+          "item": "rose",
+          "chancePercent": 13.151
+        },
+        {
+          "item": "cake",
+          "chancePercent": 3.898
+        },
+        {
+          "item": "bouquet",
+          "chancePercent": 3.898
+        },
+        {
+          "item": "trophy",
+          "chancePercent": 1.155
+        },
+        {
+          "item": "snake_box",
+          "chancePercent": 0.107
+        },
+        {
+          "item": "ice_cream",
+          "chancePercent": 0.096
+        },
+        {
+          "item": "lol_pop",
+          "chancePercent": 0.094
+        }
+      ]
+    },
+    {
+      "id": "case_2",
+      "name": "Новичок",
+      "price": 99,
+      "targetRTP": 0.9,
+      "drops": [
+        {
+          "item": "giftbox",
+          "chancePercent": 20.991
+        },
+        {
+          "item": "rose",
+          "chancePercent": 20.992
+        },
+        {
+          "item": "cake",
+          "chancePercent": 11.613
+        },
+        {
+          "item": "rocket",
+          "chancePercent": 11.613
+        },
+        {
+          "item": "champagne",
+          "chancePercent": 11.613
+        },
+        {
+          "item": "trophy",
+          "chancePercent": 6.424
+        },
+        {
+          "item": "diamond",
+          "chancePercent": 6.424
+        },
+        {
+          "item": "lunar_snake",
+          "chancePercent": 1.915
+        },
+        {
+          "item": "instant_ramen",
+          "chancePercent": 1.867
+        },
+        {
+          "item": "pet_snake",
+          "chancePercent": 1.821
+        },
+        {
+          "item": "easter_egg",
+          "chancePercent": 1.799
+        },
+        {
+          "item": "b_day_candle",
+          "chancePercent": 1.608
+        },
+        {
+          "item": "desk_calendar",
+          "chancePercent": 1.32
+        }
+      ]
+    },
+    {
+      "id": "case_3",
+      "name": "Праздничный",
+      "price": 249,
+      "targetRTP": 0.9,
+      "drops": [
+        {
+          "item": "cake",
+          "chancePercent": 23.499
+        },
+        {
+          "item": "champagne",
+          "chancePercent": 23.499
+        },
+        {
+          "item": "trophy",
+          "chancePercent": 12.743
+        },
+        {
+          "item": "diamond",
+          "chancePercent": 12.743
+        },
+        {
+          "item": "xmas_stocking",
+          "chancePercent": 3.552
+        },
+        {
+          "item": "candy_cane",
+          "chancePercent": 3.552
+        },
+        {
+          "item": "holiday_drink",
+          "chancePercent": 3.078
+        },
+        {
+          "item": "winter_wreath",
+          "chancePercent": 2.979
+        },
+        {
+          "item": "ginger_cookie",
+          "chancePercent": 2.917
+        },
+        {
+          "item": "santa_hat",
+          "chancePercent": 2.305
+        },
+        {
+          "item": "snow_globe",
+          "chancePercent": 2.251
+        },
+        {
+          "item": "snow_mittens",
+          "chancePercent": 1.965
+        },
+        {
+          "item": "joyful_bundle",
+          "chancePercent": 1.832
+        },
+        {
+          "item": "jingle_bells",
+          "chancePercent": 1.558
+        },
+        {
+          "item": "sleigh_bell",
+          "chancePercent": 1.527
+        }
+      ]
+    },
+    {
+      "id": "case_4",
+      "name": "Любовь",
+      "price": 499,
+      "targetRTP": 0.9,
+      "drops": [
+        {
+          "item": "rose",
+          "chancePercent": 36.436
+        },
+        {
+          "item": "bouquet",
+          "chancePercent": 22.711
+        },
+        {
+          "item": "ring",
+          "chancePercent": 14.156
+        },
+        {
+          "item": "cookie_heart",
+          "chancePercent": 4.427
+        },
+        {
+          "item": "pretty_posy",
+          "chancePercent": 4.359
+        },
+        {
+          "item": "lush_bouquet",
+          "chancePercent": 3.826
+        },
+        {
+          "item": "love_candle",
+          "chancePercent": 2.555
+        },
+        {
+          "item": "valentine_box",
+          "chancePercent": 2.37
+        },
+        {
+          "item": "love_potion",
+          "chancePercent": 2.137
+        },
+        {
+          "item": "trapped_heart",
+          "chancePercent": 2.01
+        },
+        {
+          "item": "cupid_charm",
+          "chancePercent": 1.598
+        },
+        {
+          "item": "eternal_rose",
+          "chancePercent": 1.459
+        },
+        {
+          "item": "bonded_ring",
+          "chancePercent": 1.036
+        },
+        {
+          "item": "kissed_frog",
+          "chancePercent": 0.9
+        },
+        {
+          "item": "heart_locket",
+          "chancePercent": 0.02
+        }
+      ]
+    },
+    {
+      "id": "case_5",
+      "name": "Хэллоуин",
+      "price": 999,
+      "targetRTP": 0.9,
+      "drops": [
+        {
+          "item": "hex_pot",
+          "chancePercent": 29.695
+        },
+        {
+          "item": "spy_agaric",
+          "chancePercent": 22.682
+        },
+        {
+          "item": "witch_hat",
+          "chancePercent": 13.351
+        },
+        {
+          "item": "evil_eye",
+          "chancePercent": 13.151
+        },
+        {
+          "item": "skull_flower",
+          "chancePercent": 5.612
+        },
+        {
+          "item": "crystal_ball",
+          "chancePercent": 4.9
+        },
+        {
+          "item": "flying_broom",
+          "chancePercent": 4.636
+        },
+        {
+          "item": "mad_pumpkin",
+          "chancePercent": 4.471
+        },
+        {
+          "item": "electric_skull",
+          "chancePercent": 0.939
+        },
+        {
+          "item": "voodoo_doll",
+          "chancePercent": 0.513
+        },
+        {
+          "item": "scared_cat",
+          "chancePercent": 0.05
+        }
+      ]
+    },
+    {
+      "id": "case_6",
+      "name": "Магия",
+      "price": 2499,
+      "targetRTP": 0.89,
+      "drops": [
+        {
+          "item": "mirage_lamp",
+          "chancePercent": 18.223
+        },
+        {
+          "item": "faith_amulet",
+          "chancePercent": 15.031
+        },
+        {
+          "item": "moon_pendant",
+          "chancePercent": 14.584
+        },
+        {
+          "item": "myth_mask",
+          "chancePercent": 11.063
+        },
+        {
+          "item": "crystal_ball",
+          "chancePercent": 9.889
+        },
+        {
+          "item": "love_potion",
+          "chancePercent": 9.235
+        },
+        {
+          "item": "genie_lamp",
+          "chancePercent": 5.773
+        },
+        {
+          "item": "magic_potion",
+          "chancePercent": 4.578
+        },
+        {
+          "item": "gem_signet",
+          "chancePercent": 4.248
+        },
+        {
+          "item": "ion_gem",
+          "chancePercent": 4.19
+        },
+        {
+          "item": "astral_shard",
+          "chancePercent": 3.186
+        }
+      ]
+    },
+    {
+      "id": "case_7",
+      "name": "Стиль",
+      "price": 4999,
+      "targetRTP": 0.89,
+      "drops": [
+        {
+          "item": "bow_tie",
+          "chancePercent": 13.486
+        },
+        {
+          "item": "top_hat",
+          "chancePercent": 11.459
+        },
+        {
+          "item": "sky_stilettos",
+          "chancePercent": 9.708
+        },
+        {
+          "item": "bling_binky",
+          "chancePercent": 8.978
+        },
+        {
+          "item": "diamond_ring",
+          "chancePercent": 8.238
+        },
+        {
+          "item": "signet_ring",
+          "chancePercent": 8.143
+        },
+        {
+          "item": "vintage_cigar",
+          "chancePercent": 8.031
+        },
+        {
+          "item": "swiss_watch",
+          "chancePercent": 7.063
+        },
+        {
+          "item": "low_rider",
+          "chancePercent": 6.931
+        },
+        {
+          "item": "perfume_bottle",
+          "chancePercent": 6.361
+        },
+        {
+          "item": "westside_sign",
+          "chancePercent": 5.835
+        },
+        {
+          "item": "nail_bracelet",
+          "chancePercent": 5.767
+        }
+      ]
+    },
+    {
+      "id": "case_8",
+      "name": "Дуров",
+      "price": 9999,
+      "targetRTP": 0.88,
+      "drops": [
+        {
+          "item": "diamond_ring",
+          "chancePercent": 11.852
+        },
+        {
+          "item": "toy_bear",
+          "chancePercent": 11.647
+        },
+        {
+          "item": "neko_helmet",
+          "chancePercent": 10.912
+        },
+        {
+          "item": "sharp_tongue",
+          "chancePercent": 9.471
+        },
+        {
+          "item": "kissed_frog",
+          "chancePercent": 8.841
+        },
+        {
+          "item": "ion_gem",
+          "chancePercent": 7.441
+        },
+        {
+          "item": "mini_oscar",
+          "chancePercent": 7.371
+        },
+        {
+          "item": "artisan_brick",
+          "chancePercent": 7.31
+        },
+        {
+          "item": "mighty_arm",
+          "chancePercent": 5.345
+        },
+        {
+          "item": "durovs_glasses",
+          "chancePercent": 5.094
+        },
+        {
+          "item": "loot_bag",
+          "chancePercent": 4.952
+        },
+        {
+          "item": "heroic_helmet",
+          "chancePercent": 4.113
+        },
+        {
+          "item": "precious_peach",
+          "chancePercent": 3.233
+        },
+        {
+          "item": "durovs_cap",
+          "chancePercent": 2.418
+        }
+      ]
+    },
+    {
+      "id": "case_9",
+      "name": "Легенды",
+      "price": 24999,
+      "targetRTP": 0.88,
+      "drops": [
+        {
+          "item": "swiss_watch",
+          "chancePercent": 6.532
+        },
+        {
+          "item": "magic_potion",
+          "chancePercent": 6.556
+        },
+        {
+          "item": "low_rider",
+          "chancePercent": 6.608
+        },
+        {
+          "item": "gem_signet",
+          "chancePercent": 6.72
+        },
+        {
+          "item": "westside_sign",
+          "chancePercent": 7.329
+        },
+        {
+          "item": "mighty_arm",
+          "chancePercent": 7.381
+        },
+        {
+          "item": "astral_shard",
+          "chancePercent": 7.393
+        },
+        {
+          "item": "loot_bag",
+          "chancePercent": 7.534
+        },
+        {
+          "item": "heroic_helmet",
+          "chancePercent": 7.921
+        },
+        {
+          "item": "precious_peach",
+          "chancePercent": 8.451
+        },
+        {
+          "item": "scared_cat",
+          "chancePercent": 8.495
+        },
+        {
+          "item": "durovs_cap",
+          "chancePercent": 9.139
+        },
+        {
+          "item": "resistance_dog",
+          "chancePercent": 9.191
+        },
+        {
+          "item": "heart_locket",
+          "chancePercent": 0.6
+        },
+        {
+          "item": "plush_pepe",
+          "chancePercent": 0.15
+        }
+      ]
+    },
+    {
+      "id": "pepe",
+      "name": "Pepe",
+      "price": 34999,
+      "targetRTP": 0.88,
+      "drops": [
+        {
+          "item": "perfume_bottle",
+          "chancePercent": 4.822
+        },
+        {
+          "item": "westside_sign",
+          "chancePercent": 6.003
+        },
+        {
+          "item": "nail_bracelet",
+          "chancePercent": 6.185
+        },
+        {
+          "item": "astral_shard",
+          "chancePercent": 6.228
+        },
+        {
+          "item": "durovs_glasses",
+          "chancePercent": 6.532
+        },
+        {
+          "item": "loot_bag",
+          "chancePercent": 6.746
+        },
+        {
+          "item": "heroic_helmet",
+          "chancePercent": 8.332
+        },
+        {
+          "item": "precious_peach",
+          "chancePercent": 10.953
+        },
+        {
+          "item": "scared_cat",
+          "chancePercent": 11.198
+        },
+        {
+          "item": "durovs_cap",
+          "chancePercent": 15.242
+        },
+        {
+          "item": "resistance_dog",
+          "chancePercent": 15.609
+        },
+        {
+          "item": "intelligence_cup",
+          "chancePercent": 0.7
+        },
+        {
+          "item": "heart_locket",
+          "chancePercent": 0.7
+        },
+        {
+          "item": "algorithm_cup",
+          "chancePercent": 0.5
+        },
+        {
+          "item": "plush_pepe",
+          "chancePercent": 0.25
+        }
+      ]
+    }
+  ],
+  "levels": [
+    {
+      "level": 1,
+      "inventoryValueFrom": 0,
+      "incomePerHour": 15,
+      "accrualCapHours": 8
+    },
+    {
+      "level": 2,
+      "inventoryValueFrom": 400,
+      "incomePerHour": 23,
+      "accrualCapHours": 8
+    },
+    {
+      "level": 3,
+      "inventoryValueFrom": 620,
+      "incomePerHour": 31,
+      "accrualCapHours": 8
+    },
+    {
+      "level": 4,
+      "inventoryValueFrom": 960,
+      "incomePerHour": 40,
+      "accrualCapHours": 8
+    },
+    {
+      "level": 5,
+      "inventoryValueFrom": 1490,
+      "incomePerHour": 53,
+      "accrualCapHours": 8
+    },
+    {
+      "level": 6,
+      "inventoryValueFrom": 2310,
+      "incomePerHour": 69,
+      "accrualCapHours": 8
+    },
+    {
+      "level": 7,
+      "inventoryValueFrom": 3580,
+      "incomePerHour": 91,
+      "accrualCapHours": 8
+    },
+    {
+      "level": 8,
+      "inventoryValueFrom": 5550,
+      "incomePerHour": 120,
+      "accrualCapHours": 8
+    },
+    {
+      "level": 9,
+      "inventoryValueFrom": 8600,
+      "incomePerHour": 160,
+      "accrualCapHours": 8
+    },
+    {
+      "level": 10,
+      "inventoryValueFrom": 13300,
+      "incomePerHour": 210,
+      "accrualCapHours": 10
+    },
+    {
+      "level": 11,
+      "inventoryValueFrom": 20700,
+      "incomePerHour": 270,
+      "accrualCapHours": 10
+    },
+    {
+      "level": 12,
+      "inventoryValueFrom": 32000,
+      "incomePerHour": 360,
+      "accrualCapHours": 10
+    },
+    {
+      "level": 13,
+      "inventoryValueFrom": 49600,
+      "incomePerHour": 470,
+      "accrualCapHours": 10
+    },
+    {
+      "level": 14,
+      "inventoryValueFrom": 76900,
+      "incomePerHour": 610,
+      "accrualCapHours": 10
+    },
+    {
+      "level": 15,
+      "inventoryValueFrom": 119000,
+      "incomePerHour": 810,
+      "accrualCapHours": 10
+    },
+    {
+      "level": 16,
+      "inventoryValueFrom": 185000,
+      "incomePerHour": 1050,
+      "accrualCapHours": 10
+    },
+    {
+      "level": 17,
+      "inventoryValueFrom": 286000,
+      "incomePerHour": 1400,
+      "accrualCapHours": 10
+    },
+    {
+      "level": 18,
+      "inventoryValueFrom": 444000,
+      "incomePerHour": 1830,
+      "accrualCapHours": 10
+    },
+    {
+      "level": 19,
+      "inventoryValueFrom": 688000,
+      "incomePerHour": 2410,
+      "accrualCapHours": 10
+    },
+    {
+      "level": 20,
+      "inventoryValueFrom": 1067000,
+      "incomePerHour": 3160,
+      "accrualCapHours": 12
+    },
+    {
+      "level": 21,
+      "inventoryValueFrom": 1653000,
+      "incomePerHour": 4150,
+      "accrualCapHours": 12
+    },
+    {
+      "level": 22,
+      "inventoryValueFrom": 2563000,
+      "incomePerHour": 5450,
+      "accrualCapHours": 12
+    },
+    {
+      "level": 23,
+      "inventoryValueFrom": 3972000,
+      "incomePerHour": 7160,
+      "accrualCapHours": 12
+    },
+    {
+      "level": 24,
+      "inventoryValueFrom": 6157000,
+      "incomePerHour": 9400,
+      "accrualCapHours": 12
+    },
+    {
+      "level": 25,
+      "inventoryValueFrom": 9543000,
+      "incomePerHour": 12350,
+      "accrualCapHours": 12
+    }
+  ]
+}
