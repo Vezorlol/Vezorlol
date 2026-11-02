@@ -145,11 +145,11 @@ final class AppModel {
         case .regular(let r):
             let def = catalog.regular(r.giftId)
             let parts = (def?.name ?? "").split(separator: " ", maxSplits: 1)
-            return GiftDisplay(emoji: parts.first.map(String.init) ?? "🎁", title: parts.count > 1 ? String(parts[1]) : (def?.name ?? ""),
+            return GiftDisplay(emoji: parts.first.map(String.init) ?? "🎁", artName: "gift_\(r.giftId)", title: parts.count > 1 ? String(parts[1]) : (def?.name ?? ""),
                                subtitle: "", rarity: nil, backdrop: nil, symbol: nil, isUpgraded: true, isCrafted: false, craftRarity: nil)
         case .unique(let u):
             let col = catalog.collection(u.collectionId)
-            return GiftDisplay(emoji: col?.emojiPlaceholder ?? "🎁", title: col?.name ?? u.collectionId, subtitle: "#\(u.number)",
+            return GiftDisplay(emoji: col?.emojiPlaceholder ?? "🎁", artName: "gift_\(u.collectionId)", title: col?.name ?? u.collectionId, subtitle: "#\(u.number)",
                                rarity: col?.tier, backdrop: u.isUpgraded ? AttributePools.backdrop(u.backdropId) : nil,
                                symbol: u.isUpgraded ? AttributePools.symbol(u.symbolId) : nil,
                                isUpgraded: u.isUpgraded, isCrafted: u.isCrafted, craftRarity: u.craftRarity)
@@ -159,6 +159,7 @@ final class AppModel {
 
 struct GiftDisplay {
     let emoji: String
+    let artName: String
     let title: String
     let subtitle: String
     let rarity: Rarity?

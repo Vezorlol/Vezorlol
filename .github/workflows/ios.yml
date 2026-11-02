@@ -1,0 +1,37 @@
+name: iOS build
+on:
+  push:
+    branches: [main, "claude/**"]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Core unit tests
+        run: cd Core && swift test -c release
+      - name: Install XcodeGen
+        run: brew install xcodegen
+      - name: Generate project
+        run: cd App && xcodegen generate
+      - name: Build for simulator
+        run: |
+          cd App
+          xcodebuild build -project GiftCases.xcodeproj -scheme GiftCases \
+            -destination 'generic/platform=iOS Simulator' -derivedDataPath build/sim \
+            CODE_SIGNING_ALLOWED=NO | tail -40
+      - name: Archive unsigned IPA
+        run: |
+          cd App
+          xcodebuild archive -project GiftCases.xcodeproj -scheme GiftCases \
+            -destination 'generic/platform=iOS' -archivePath build/GiftCases.xcarchive \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" | tail -40
+          mkdir -p build/ipa/Payload
+          cp -R build/GiftCases.xcarchive/Products/Applications/GiftCases.app build/ipa/Payload/
+          (cd build/ipa && zip -qr ../GiftCases-unsigned.ipa Payload)
+      - uses: actions/upload-artifact@v4
+        with:
+          name: GiftCases-unsigned-ipa
+          path: App/build/GiftCases-unsigned.ipa

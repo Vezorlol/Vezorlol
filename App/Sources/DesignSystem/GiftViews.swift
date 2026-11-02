@@ -2,13 +2,16 @@ import SwiftUI
 import Charts
 import GiftCasesCore
 
-/// Источник графики подарков. Сейчас — эмодзи; позже подставить Lottie/PNG, не трогая экраны.
+/// Источник графики подарков: PNG из Assets (gift_<id>), запасной вариант — эмодзи; позже подставить Lottie/PNG, не трогая экраны.
 protocol GiftArtProvider {
     func model(for display: GiftDisplay, size: CGFloat) -> AnyView
 }
 struct EmojiGiftArt: GiftArtProvider {
     func model(for display: GiftDisplay, size: CGFloat) -> AnyView {
-        AnyView(Text(display.emoji).font(.system(size: size)))
+        if UIImage(named: display.artName) != nil {
+            return AnyView(Image(display.artName).resizable().scaledToFit().frame(width: size, height: size))
+        }
+        return AnyView(Text(display.emoji).font(.system(size: size)))
     }
 }
 enum GiftArt { static var provider: GiftArtProvider = EmojiGiftArt() }
