@@ -1,5 +1,6 @@
 import SwiftUI
 import UIKit
+import AudioToolbox
 import GiftCasesCore
 
 extension UIColor {
@@ -197,6 +198,15 @@ struct LevelBadge: View {
 
 // MARK: - Хаптики
 
+/// Системные звуки (включаются в настройках).
+enum Sound {
+    static var enabled = true
+    static func play(win: Bool) {
+        guard enabled else { return }
+        AudioServicesPlaySystemSound(win ? 1057 : 1053)
+    }
+}
+
 /// Вызывается только с главного потока (UI).
 enum Haptics {
     static var enabled = true
@@ -207,6 +217,7 @@ enum Haptics {
     static func notify(_ type: UINotificationFeedbackGenerator.FeedbackType) {
         guard enabled else { return }
         MainActor.assumeIsolated { UINotificationFeedbackGenerator().notificationOccurred(type) }
+        Sound.play(win: type == .success)
     }
 }
 

@@ -16,6 +16,8 @@ final class AppModel {
     var levelUp: LevelDef?
     private var lastLevel: Int
     private var timer: Timer?
+    /// Перемотка времени (только Debug-сборка).
+    fileprivate let debugBox: DebugOffset
 
     private static var saveURL: URL {
         let dir = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
@@ -29,10 +31,13 @@ final class AppModel {
         let saved = (try? Data(contentsOf: Self.saveURL)).flatMap { try? JSONDecoder().decode(GameState.self, from: $0) }
         let clock = TrustedClock(state: saved?.trusted)
         trustedClock = clock
-        engine = GameEngine(catalog: catalog, rules: rules, state: saved, clock: { clock.now() })
+        let box = DebugOffset()
+        debugBox = box
+        engine = GameEngine(catalog: catalog, rules: rules, state: saved, clock: { clock.now().addingTimeInterval(box.seconds) })
         lastLevel = engine.currentLevel().level
         Haptics.enabled = engine.state.settings.haptics
-        now = clock.now()
+        Sound.enabled = engine.state.settings.sound
+        now = clock.now().addingTimeInterval(box.seconds)
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
             Task { @MainActor in self?.tick() }
         }
@@ -41,14 +46,14 @@ final class AppModel {
         }
     }
 
-    private func tick() { now = trustedClock.now() }
+    private func tick() { now = engine.clock() }
 
     /// Вызывать после любого изменения состояния.
     func changed() {
         engine.setTrusted(trustedClock.state)
         if let data = try? JSONEncoder().encode(engine.state) { try? data.write(to: Self.saveURL, options: .atomic) }
         revision += 1
-        now = trustedClock.now()
+        now = engine.clock()
         let lvl = engine.currentLevel()
         if lvl.level > lastLevel { levelUp = lvl; Haptics.notify(.success) }
         lastLevel = lvl.level
@@ -103,7 +108,7 @@ final class AppModel {
     // MARK: Настройки
 
     func setHaptics(_ on: Bool) { engine.updateSettings { $0.haptics = on }; Haptics.enabled = on; changed() }
-    func setSound(_ on: Bool) { engine.updateSettings { $0.sound = on }; changed() }
+    func setSound(_ on: Bool) { engine.updateSettings { $0.sound = on }; Sound.enabled = on; changed() }
     func setTheme(_ t: String) { engine.updateSettings { $0.theme = t }; changed() }
     var colorScheme: ColorScheme? {
         switch engine.state.settings.theme { case "light": return .light; case "dark": return .dark; default: return nil }
@@ -170,4 +175,11 @@ func formatDuration(_ seconds: TimeInterval) -> String {
     if h > 0 { return "\(h) ч \(m) мин" }
     if m > 0 { return "\(m) мин \(sec) с" }
     return "\(sec) с"
+}
+
+final class DebugOffset { var seconds: TimeInterval = 0 }
+
+extension AppModel {
+    /// Debug: сдвинуть игровое время вперёд.
+    func debugAdvance(hours: Double) { debugBox.seconds += hours * 3600; changed() }
 }

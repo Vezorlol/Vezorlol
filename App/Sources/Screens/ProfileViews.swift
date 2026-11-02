@@ -47,6 +47,9 @@ struct ProfileView: View {
                 #if DEBUG
                 Section("Debug") {
                     Button("+100 000 ⭐") { model.engine.debugGrant(100_000); model.changed() }
+                    Button("Перемотать +1 час") { model.debugAdvance(hours: 1) }
+                    Button("Перемотать +8 часов") { model.debugAdvance(hours: 8) }
+                    Button("Перемотать +1 день") { model.debugAdvance(hours: 24) }
                 }
                 #endif
                 Section { Button("Сбросить прогресс", role: .destructive) { confirmReset = true } }
