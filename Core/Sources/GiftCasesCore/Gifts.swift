@@ -92,9 +92,9 @@ public final class CollectionIndexService: @unchecked Sendable {
         max(0, Int(floor(date.timeIntervalSince(epoch) / 86_400)))
     }
 
-    public func index(collection: Collection, day: Int) -> Double { point(collection: collection, day: day).index }
-    public func index(collection: Collection, at date: Date) -> Double { index(collection: collection, day: dayNumber(for: date)) }
-    public func point(collection: Collection, day: Int) -> DayPoint {
+    public func index(collection: GiftCollection, day: Int) -> Double { point(collection: collection, day: day).index }
+    public func index(collection: GiftCollection, at date: Date) -> Double { index(collection: collection, day: dayNumber(for: date)) }
+    public func point(collection: GiftCollection, day: Int) -> DayPoint {
         lock.lock(); defer { lock.unlock() }
         var series = cache[collection.id] ?? [DayPoint(index: 1.0, newBatch: false)]
         while series.count <= day {
@@ -112,11 +112,11 @@ public final class CollectionIndexService: @unchecked Sendable {
         return series[day]
     }
     /// Изменение за 24 часа в долях (0.03 = +3%).
-    public func change24h(collection: Collection, day: Int) -> Double {
+    public func change24h(collection: GiftCollection, day: Int) -> Double {
         guard day > 0 else { return 0 }
         return index(collection: collection, day: day) / index(collection: collection, day: day - 1) - 1
     }
-    public func history(collection: Collection, endingAt day: Int, days: Int = 30) -> [Double] {
+    public func history(collection: GiftCollection, endingAt day: Int, days: Int = 30) -> [Double] {
         let start = max(0, day - days + 1)
         return (start...day).map { index(collection: collection, day: $0) }
     }
@@ -173,7 +173,7 @@ public struct ValueCalculator: Sendable {
     }
 
     /// Базовая цена без атрибутов («флор × индекс») — для кейсов, магазина, апгрейда.
-    public func floorValue(of collection: Collection, index: Double) -> Stars {
+    public func floorValue(of collection: GiftCollection, index: Double) -> Stars {
         floorStars(Decimal(collection.floor) * (Decimal(Int((index * 10_000).rounded())) / 10_000))
     }
 }
@@ -185,7 +185,7 @@ public struct GiftFactory: Sendable {
     public let rules: EconomyRules
     public init(catalog: Catalog, rules: EconomyRules) { self.catalog = catalog; self.rules = rules }
 
-    public func makeUpgraded(collection: Collection, source: GiftSource, price: Stars, now: Date,
+    public func makeUpgraded(collection: GiftCollection, source: GiftSource, price: Stars, now: Date,
                              allocator: inout NumberAllocator, rng: RandomSource,
                              crafted: CraftRarity? = nil) -> UniqueGift {
         let model = AttributePools.models[AttributePools.modelTable.pick(rng)]
@@ -197,7 +197,7 @@ public struct GiftFactory: Sendable {
                           isUpgraded: true, acquiredAt: now, acquiredPrice: price, source: source)
     }
 
-    public func makeUnupgraded(collection: Collection, source: GiftSource, price: Stars, now: Date,
+    public func makeUnupgraded(collection: GiftCollection, source: GiftSource, price: Stars, now: Date,
                                allocator: inout NumberAllocator, rng: RandomSource) -> UniqueGift {
         let number = allocator.allocate(collection: collection.id, supply: rules.supply(of: collection.tier), rng: rng)
         return UniqueGift(id: UUID(), collectionId: collection.id, number: number, modelId: AttributePools.models.last!.id,

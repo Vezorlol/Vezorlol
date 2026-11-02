@@ -9,7 +9,7 @@ public struct MarketLot: Identifiable, Hashable, Sendable {
 
 public struct ShopSlot: Identifiable, Hashable, Sendable {
     public let id: String            // "<day>|<collectionId>"
-    public let collection: Collection
+    public let collection: GiftCollection
     public let price: Stars          // 0.5 × флор
     public let upgradeCost: Stars    // 0.6 × флор
     public let stock: Int
@@ -32,7 +32,7 @@ public struct MarketService: Sendable {
     }
 
     /// Коллекции, доступные по уровню: флор ≤ max(minFloor, 35% порога следующего уровня).
-    public func accessibleCollections(level: Int) -> [Collection] {
+    public func accessibleCollections(level: Int) -> [GiftCollection] {
         let current = catalog.levels.first(where: { $0.level == level }) ?? catalog.levels[0]
         let next = catalog.nextLevel(after: level)?.inventoryValueFrom ?? current.inventoryValueFrom
         let limit = max(rules.market.accessMinFloor, floorStars(Decimal(next) * dec(rules.market.accessFractionOfNextLevel)))

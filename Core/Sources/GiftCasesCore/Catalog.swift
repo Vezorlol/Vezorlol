@@ -13,7 +13,7 @@ public struct RegularGift: Codable, Identifiable, Hashable, Sendable {
     public let sellPrice: Stars
 }
 
-public struct Collection: Codable, Identifiable, Hashable, Sendable {
+public struct GiftCollection: Codable, Identifiable, Hashable, Sendable {
     public let id: String
     public let name: String
     public let floor: Stars
@@ -50,13 +50,13 @@ public struct CatalogMeta: Codable, Sendable {
 
 public enum ItemRef: Sendable, Hashable {
     case regular(RegularGift)
-    case collection(Collection)
+    case collection(GiftCollection)
 }
 
 public struct Catalog: Codable, Sendable {
     public let meta: CatalogMeta
     public let regularGifts: [RegularGift]
-    public let collectibles: [Collection]
+    public let collectibles: [GiftCollection]
     public let cases: [CaseDef]
     public let levels: [LevelDef]
 
@@ -66,7 +66,7 @@ public struct Catalog: Codable, Sendable {
         let c = try decoder.container(keyedBy: CodingKeys.self)
         meta = try c.decode(CatalogMeta.self, forKey: .meta)
         regularGifts = try c.decode([RegularGift].self, forKey: .regularGifts)
-        var cols = try c.decode([Collection].self, forKey: .collectibles)
+        var cols = try c.decode([GiftCollection].self, forKey: .collectibles)
         for i in cols.indices where cols[i].emojiPlaceholder.isEmpty {
             cols[i].emojiPlaceholder = CollectionEmoji.emoji(for: cols[i].id)
         }
@@ -88,11 +88,11 @@ public struct Catalog: Codable, Sendable {
     }
 
     private let regularIndex: [String: RegularGift]
-    private let collectionIndex: [String: Collection]
+    private let collectionIndex: [String: GiftCollection]
     private let caseIndex: [String: CaseDef]
 
     public func regular(_ id: String) -> RegularGift? { regularIndex[id] }
-    public func collection(_ id: String) -> Collection? { collectionIndex[id] }
+    public func collection(_ id: String) -> GiftCollection? { collectionIndex[id] }
     public func caseDef(_ id: String) -> CaseDef? { caseIndex[id] }
     public func resolve(_ id: String) -> ItemRef? {
         if let r = regularIndex[id] { return .regular(r) }

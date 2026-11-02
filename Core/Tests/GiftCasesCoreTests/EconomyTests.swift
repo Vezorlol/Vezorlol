@@ -126,4 +126,4 @@ final class EconomyTests: XCTestCase {
     }
 }
 
-extension Catalog { var collections0: Collection { collectibles[0] } }
+extension Catalog { var collections0: GiftCollection { collectibles[0] } }

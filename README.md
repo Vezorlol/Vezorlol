@@ -1,10 +1,26 @@
-- 👋 Hi, I’m @Vezorlol
-- 👀 I’m interested in telegram bots
-- 🌱 I’m currently learning python
-- 💞️ I’m looking to collaborate on idk
-- 📫 How to reach me @Vezor (telegram)
+# Gift Cases — офлайн-симулятор кейсов с коллекционными подарками (iOS)
 
-<!---
-Vezorlol/Vezorlol is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+Неофициальный фан-симулятор. Не связан с Telegram. Звёзды и подарки игровые и не имеют реальной ценности.
+Полное ТЗ — [`docs/SPEC.md`](docs/SPEC.md).
+
+## Структура
+
+| Папка | Что внутри | Проверено |
+|---|---|---|
+| `Core/` | Swift-пакет `GiftCasesCore`: каталог, экономика, кейсы, Coin Flip, Crash, Крафт, Апгрейд, Маркет/Магазин, provably fair (HMAC-SHA256), доверенное время, игровой движок с атомарными транзакциями. Без UI, собирается на macOS и Linux. | **52 юнит-теста** (`cd Core && swift test -c release`) |
+| `App/` | SwiftUI-приложение (iOS 17+): 5 вкладок, дизайн-система, рулетка, игры, профиль, онбординг. | Только синтаксис (`swiftc -parse`); в Xcode не собиралось |
+
+Весь баланс — в JSON: `gifts_catalog.json` (каталог, кейсы, уровни) и `economy_rules.json` (ставки, множители, лимиты, индекс, крафт и т. д.).
+
+## Запуск приложения
+
+```bash
+brew install xcodegen
+cd App && xcodegen generate && open GiftCases.xcodeproj
+```
+
+## Тесты ядра
+
+```bash
+cd Core && swift test -c release
+```
