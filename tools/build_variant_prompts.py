@@ -11,8 +11,7 @@ def slug(s): return re.sub(r"[^a-z0-9]+", "_", s.lower()).strip("_")
 ap = argparse.ArgumentParser(); ap.add_argument("--only", nargs="*"); ap.add_argument("--per-sheet", type=int, default=9)
 a = ap.parse_args()
 cat = json.load(open(f"{ROOT}/Core/Sources/GiftCasesCore/Resources/gifts_catalog.json"))
-data = json.load(open(f"{ROOT}/telegram_gift_attributes.json"))
-by_title = {slug(v["title"] or ""): v for v in data["collections"].values()}
+data = json.load(open(f"{ROOT}/Core/Sources/GiftCasesCore/Resources/gift_attributes.json", encoding="utf-8"))
 STYLE = ("Same glossy 3D toy-like style as the base design of this collection: soft studio lighting, subtle rim light, rounded friendly shapes, "
          "rich saturated colors, tiny sparkles. ORIGINAL artwork, no text, no logos. The SAME object and the SAME pose in every cell, "
          "only the variant changes (colors, outfit, material, small themed details that match the variant name). Plain flat white background.")
@@ -23,9 +22,9 @@ cols = sorted(cat["collectibles"], key=lambda c: -c["floor"])
 total = 0
 for c in cols:
     if a.only and c["id"] not in a.only: continue
-    v = by_title.get(slug(c["name"]))
+    v = data["collections"].get(c["id"])
     if not v: continue
-    models = [m for m in v["models"] if not m.get("crafted")]
+    models = [{"name": n, "permille": p} for n, p in v["models"]]
     out.append(f"## {c['name']} ({len(models)} моделей)\n")
     for i in range(0, len(models), a.per_sheet):
         chunk = models[i:i + a.per_sheet]; n = i // a.per_sheet + 1

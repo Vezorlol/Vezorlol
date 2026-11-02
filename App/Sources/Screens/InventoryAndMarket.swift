@@ -195,7 +195,7 @@ struct GiftDetailBody: View {
             GiftCardView(gift: gift, showsInfo: false).frame(width: 170).padding(.top, 20)
             Text("\(d.title) \(d.subtitle)").font(.title3.bold())
             if case .unique(let u) = gift, u.isUpgraded {
-                if let m = AttributePools.model(u.modelId) { Text("Модель: \(m.name)").font(.subheadline).foregroundStyle(TG.secondary) }
+                if let m = AttributePools.model(u.collectionId, u.modelId) { Text("Модель: \(m.name)").font(.subheadline).foregroundStyle(TG.secondary) }
                 if let b = AttributePools.backdrop(u.backdropId) { Text("Фон: \(b.name)").font(.subheadline).foregroundStyle(TG.secondary) }
             }
             Text("Оценка ≈ \(StarsFormat.withStar(model.value(of: gift)))").font(.subheadline)

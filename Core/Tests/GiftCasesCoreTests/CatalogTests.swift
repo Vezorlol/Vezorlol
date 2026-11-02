@@ -25,13 +25,22 @@ final class CatalogTests: XCTestCase {
         }
     }
 
-    func testPermilleSums() {
-        XCTAssertEqual(AttributePools.models.map(\.permille).reduce(0, +), 1000)
-        XCTAssertEqual(AttributePools.backdrops.map(\.permille).reduce(0, +), 1000)
-        XCTAssertEqual(AttributePools.symbols.map(\.permille).reduce(0, +), 1000)
-        XCTAssertEqual(AttributePools.models.count, 20)
-        XCTAssertEqual(AttributePools.backdrops.count, 30)
-        XCTAssertEqual(AttributePools.symbols.count, 40)
+    func testRealAttributeData() {
+        XCTAssertEqual(AttributePools.backdrops.count, 80)
+        XCTAssertEqual(Set(AttributePools.backdrops.map(\.id)).count, 80)
+        var totalModels = 0
+        for c in T.catalog.collectibles {
+            XCTAssertTrue(AttributePools.hasAttributes(for: c.id), c.id)
+            let models = AttributePools.models(c.id), patterns = AttributePools.symbols(c.id)
+            XCTAssertGreaterThanOrEqual(models.count, 3, c.id)
+            XCTAssertGreaterThanOrEqual(patterns.count, 100, c.id)
+            let sum = models.map(\.permille).reduce(0, +)
+            XCTAssertTrue((300...1100).contains(sum), "\(c.id) model permille sum \(sum)")
+            XCTAssertEqual(patterns.map(\.permille).reduce(0, +), 1000, accuracy: 60, c.id)
+            XCTAssertEqual(Set(models.map(\.name)).count, models.count, "\(c.id): имена моделей уникальны")
+            totalModels += models.count
+        }
+        XCTAssertEqual(totalModels, 7770)
     }
 
     func testLevelsMonotonic() {

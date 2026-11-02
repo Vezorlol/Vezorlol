@@ -67,14 +67,14 @@ final class CasesTests: XCTestCase {
 
     func testMultiplierRules() {
         let c = T.calc
-        XCTAssertEqual(c.modelMultiplier(permille: 5), 4.0)
-        XCTAssertEqual(c.modelMultiplier(permille: 10), 2.2)
-        XCTAssertEqual(c.modelMultiplier(permille: 15), 1.5)
-        XCTAssertEqual(c.modelMultiplier(permille: 40), 1.2)
-        XCTAssertEqual(c.modelMultiplier(permille: 80), 1.05)
-        XCTAssertEqual(c.modelMultiplier(permille: 175), 1.0)
-        XCTAssertEqual(c.backdropMultiplier(permille: 5), 2.0)
-        XCTAssertEqual(c.backdropMultiplier(permille: 58), 1.0)
+        XCTAssertEqual(c.modelMultiplier(permille: 2), 3.0)
+        XCTAssertEqual(c.modelMultiplier(permille: 5), 1.6)
+        XCTAssertEqual(c.modelMultiplier(permille: 8), 1.25)
+        XCTAssertEqual(c.modelMultiplier(permille: 10), 1.1)
+        XCTAssertEqual(c.modelMultiplier(permille: 20), 1.0)
+        XCTAssertEqual(c.backdropMultiplier(permille: 10), 1.5)
+        XCTAssertEqual(c.backdropMultiplier(permille: 15), 1.05)
+        XCTAssertEqual(c.backdropMultiplier(permille: 20), 1.0)
         XCTAssertEqual(c.numberMultiplier(7), 5.0)
         XCTAssertEqual(c.numberMultiplier(50), 1.5)
         XCTAssertEqual(c.numberMultiplier(777), 1.3)
@@ -84,9 +84,14 @@ final class CasesTests: XCTestCase {
 
     func testValueCapAndUnupgraded() {
         let col = T.catalog.collection("plush_pepe")!
-        let best = UniqueGift(id: UUID(), collectionId: col.id, number: 1, modelId: "m0", backdropId: "b0", symbolId: "s0",
+        let rarestModel = AttributePools.models(col.id).min { $0.permille < $1.permille }!
+        let rarestBackdrop = AttributePools.backdrops.min { $0.permille < $1.permille }!
+        let best = UniqueGift(id: UUID(), collectionId: col.id, number: 1, modelId: rarestModel.id, backdropId: rarestBackdrop.id, symbolId: "s0",
                               isCrafted: false, craftRarity: nil, isUpgraded: true, acquiredAt: T.t0, acquiredPrice: 0, source: .caseOpen)
-        XCTAssertEqual(T.calc.value(of: best, index: 1.0), col.floor * 12)  // M ограничен 12
+        let m = T.calc.multiplier(of: best)
+        XCTAssertGreaterThan(m, 5)
+        XCTAssertLessThanOrEqual(m, 12)                      // M ограничен 12
+        XCTAssertEqual(T.calc.value(of: best, index: 1.0), floorStars(Decimal(col.floor) * m))
         var raw = best; raw.isUpgraded = false
         XCTAssertEqual(T.calc.value(of: raw, index: 1.0), col.floor / 2)
     }

@@ -149,9 +149,9 @@ final class AppModel {
                                subtitle: "", rarity: nil, backdrop: nil, symbol: nil, isUpgraded: true, isCrafted: false, craftRarity: nil)
         case .unique(let u):
             let col = catalog.collection(u.collectionId)
-            return GiftDisplay(emoji: col?.emojiPlaceholder ?? "🎁", artName: "gift_\(u.collectionId)", variantArtName: u.isUpgraded ? "gift_\(u.collectionId)__\(artSlug(AttributePools.model(u.modelId)?.name ?? ""))" : nil, title: col?.name ?? u.collectionId, subtitle: "#\(u.number)",
+            return GiftDisplay(emoji: col?.emojiPlaceholder ?? "🎁", artName: "gift_\(u.collectionId)", variantArtName: u.isUpgraded ? "gift_\(u.collectionId)__\(artSlug(AttributePools.model(u.collectionId, u.modelId)?.name ?? ""))" : nil, title: col?.name ?? u.collectionId, subtitle: "#\(u.number)",
                                rarity: col?.tier, backdrop: u.isUpgraded ? AttributePools.backdrop(u.backdropId) : nil,
-                               symbol: u.isUpgraded ? AttributePools.symbol(u.symbolId) : nil,
+                               symbol: u.isUpgraded ? AttributePools.symbol(u.collectionId, u.symbolId) : nil,
                                isUpgraded: u.isUpgraded, isCrafted: u.isCrafted, craftRarity: u.craftRarity)
         }
     }

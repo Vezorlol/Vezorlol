@@ -150,18 +150,60 @@ public struct ValueCalculator: Sendable {
         return 1.0
     }
 
+    // MARK: Нормировка по коллекции
+    // У разных коллекций разное распределение редкости моделей (у многих все модели одинаково редкие),
+    // поэтому у каждой считается базовый коэффициент так, чтобы E[M] = meta.avgAttributeMultiplier —
+    // на это значение рассчитаны шансы кейсов.
+    private static let baseLock = NSLock()
+    nonisolated(unsafe) private static var baseCache: [String: Decimal] = [:]
+    nonisolated(unsafe) private static var numberCache: [Int: Double] = [:]
+
+    func expectedNumberMultiplier(supply: Int) -> Double {
+        Self.baseLock.lock(); defer { Self.baseLock.unlock() }
+        if let v = Self.numberCache[supply] { return v }
+        var extra = 0.0
+        for n in 1...supply {
+            let m = numberMultiplier(n)
+            if m != 1.0 { extra += m - 1 }
+        }
+        let v = 1 + extra / Double(supply)
+        Self.numberCache[supply] = v
+        return v
+    }
+
+    /// Базовый коэффициент коллекции (≈1.1…1.2).
+    public func baseMultiplier(collectionId: String) -> Decimal {
+        Self.baseLock.lock()
+        if let v = Self.baseCache[collectionId] { Self.baseLock.unlock(); return v }
+        Self.baseLock.unlock()
+        guard let col = catalog.collection(collectionId), AttributePools.hasAttributes(for: collectionId) else { return 1 }
+        let attrs = AttributePools.attributes(for: collectionId)
+        func expectation(_ w: [Double], _ m: [Double]) -> Double {
+            let t = w.reduce(0, +); return zip(w, m).reduce(0) { $0 + $1.0 / t * $1.1 }
+        }
+        let em = expectation(attrs.models.map { Double($0.permille) }, attrs.models.map { modelMultiplier(permille: $0.permille) })
+        let eb = expectation(AttributePools.backdrops.map { Double($0.permille) }, AttributePools.backdrops.map { backdropMultiplier(permille: $0.permille) })
+        let es = expectation(attrs.patterns.map { Double($0.permille) }, attrs.patterns.map { symbolMultiplier(permille: $0.permille) })
+        let en = expectedNumberMultiplier(supply: rules.supply(of: col.tier))
+        let base = dec(catalog.meta.avgAttributeMultiplier / (em * eb * es * en))
+        Self.baseLock.lock(); Self.baseCache[collectionId] = base; Self.baseLock.unlock()
+        return base
+    }
+
     /// Суммарный множитель M по атрибутам (для неулучшенных не применяется).
     public func multiplier(of gift: UniqueGift) -> Decimal {
-        let backdrop = AttributePools.backdrop(gift.backdropId)?.permille ?? 58
-        let symbol = AttributePools.symbol(gift.symbolId)?.permille ?? 27
+        let backdrop = AttributePools.backdrop(gift.backdropId)?.permille ?? 20
+        let symbol = AttributePools.symbol(gift.collectionId, gift.symbolId)?.permille ?? 5
         let modelM: Double
+        var base: Decimal = 1
         if gift.isCrafted, let r = gift.craftRarity,
            let o = rules.craft.outcomes.first(where: { $0.rarity == r }) {
             modelM = o.multiplier
         } else {
-            modelM = modelMultiplier(permille: AttributePools.model(gift.modelId)?.permille ?? 175)
+            modelM = modelMultiplier(permille: AttributePools.model(gift.collectionId, gift.modelId)?.permille ?? 20)
+            base = baseMultiplier(collectionId: gift.collectionId)
         }
-        let product = dec(modelM) * dec(backdropMultiplier(permille: backdrop)) * dec(symbolMultiplier(permille: symbol)) * dec(numberMultiplier(gift.number))
+        let product = base * dec(modelM) * dec(backdropMultiplier(permille: backdrop)) * dec(symbolMultiplier(permille: symbol)) * dec(numberMultiplier(gift.number))
         let cap = dec(gift.isCrafted ? rules.valueMultiplier.craftedCap : rules.valueMultiplier.cap)
         return max(1, min(cap, product))
     }
@@ -191,9 +233,10 @@ public struct GiftFactory: Sendable {
     public func makeUpgraded(collection: GiftCollection, source: GiftSource, price: Stars, now: Date,
                              allocator: inout NumberAllocator, rng: RandomSource,
                              crafted: CraftRarity? = nil) -> UniqueGift {
-        let model = AttributePools.models[AttributePools.modelTable.pick(rng)]
+        let attrs = AttributePools.attributes(for: collection.id)
+        let model = attrs.models[attrs.modelTable.pick(rng)]
         let backdrop = AttributePools.backdrops[AttributePools.backdropTable.pick(rng)]
-        let symbol = AttributePools.symbols[AttributePools.symbolTable.pick(rng)]
+        let symbol = attrs.patterns[attrs.patternTable.pick(rng)]
         let number = allocator.allocate(collection: collection.id, supply: rules.supply(of: collection.tier), rng: rng)
         return UniqueGift(id: UUID(), collectionId: collection.id, number: number, modelId: model.id,
                           backdropId: backdrop.id, symbolId: symbol.id, isCrafted: crafted != nil, craftRarity: crafted,
@@ -203,8 +246,8 @@ public struct GiftFactory: Sendable {
     public func makeUnupgraded(collection: GiftCollection, source: GiftSource, price: Stars, now: Date,
                                allocator: inout NumberAllocator, rng: RandomSource) -> UniqueGift {
         let number = allocator.allocate(collection: collection.id, supply: rules.supply(of: collection.tier), rng: rng)
-        return UniqueGift(id: UUID(), collectionId: collection.id, number: number, modelId: AttributePools.models.last!.id,
-                          backdropId: AttributePools.backdrops.last!.id, symbolId: AttributePools.symbols.last!.id,
+        return UniqueGift(id: UUID(), collectionId: collection.id, number: number, modelId: AttributePools.models(collection.id).last!.id,
+                          backdropId: AttributePools.backdrops.last!.id, symbolId: AttributePools.symbols(collection.id).last!.id,
                           isCrafted: false, craftRarity: nil, isUpgraded: false, acquiredAt: now, acquiredPrice: price, source: source)
     }
 

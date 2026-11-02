@@ -13,7 +13,7 @@ let package = Package(
         .target(
             name: "GiftCasesCore",
             dependencies: [.product(name: "Crypto", package: "swift-crypto", condition: .when(platforms: [.linux]))],
-            resources: [.copy("Resources/gifts_catalog.json"), .copy("Resources/economy_rules.json")]
+            resources: [.copy("Resources/gifts_catalog.json"), .copy("Resources/economy_rules.json"), .copy("Resources/gift_attributes.json")]
         ),
         .testTarget(name: "GiftCasesCoreTests", dependencies: ["GiftCasesCore"])
     ]

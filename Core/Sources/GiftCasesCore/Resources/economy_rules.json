@@ -124,41 +124,37 @@
     "craftedCap": 40.0,
     "modelSteps": [
       [
+        2,
+        3.0
+      ],
+      [
         5,
-        4.0
+        1.6
+      ],
+      [
+        8,
+        1.25
       ],
       [
         10,
-        2.2
-      ],
-      [
-        20,
-        1.5
-      ],
-      [
-        40,
-        1.2
-      ],
-      [
-        80,
-        1.05
+        1.1
       ]
     ],
     "backdropSteps": [
       [
-        5,
-        2.0
+        10,
+        1.5
+      ],
+      [
+        12,
+        1.2
       ],
       [
         15,
-        1.3
-      ],
-      [
-        30,
         1.05
       ]
     ],
-    "rareSymbolPermille": 5,
+    "rareSymbolPermille": 1,
     "rareSymbolMultiplier": 1.15,
     "numberTop10": 5.0,
     "numberTop100": 1.5,

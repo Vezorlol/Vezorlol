@@ -146,9 +146,9 @@ struct GiftDetailSheet: View {
         VStack(spacing: 10) {
             if u.isUpgraded {
                 if u.isCrafted, let cr = u.craftRarity { row("Модель", "Crafted · \(cr.title)", color: cr.color) }
-                else if let m = AttributePools.model(u.modelId) { row("Модель", "\(m.name) · \(pct(m.permille))") }
+                else if let m = AttributePools.model(u.collectionId, u.modelId) { row("Модель", "\(m.name) · \(pct(m.permille))") }
                 if let b = AttributePools.backdrop(u.backdropId) { row("Фон", "\(b.name) · \(pct(b.permille))") }
-                if let s = AttributePools.symbol(u.symbolId) { row("Узор", "\(s.sfSymbol) · \(pct(s.permille))") }
+                if let s = AttributePools.symbol(u.collectionId, u.symbolId) { row("Узор", "\(s.name) · \(pct(s.permille))") }
             } else {
                 row("Статус", "Неулучшенный")
             }
