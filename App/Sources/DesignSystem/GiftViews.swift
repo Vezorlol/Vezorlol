@@ -8,6 +8,9 @@ protocol GiftArtProvider {
 }
 struct EmojiGiftArt: GiftArtProvider {
     func model(for display: GiftDisplay, size: CGFloat) -> AnyView {
+        if let v = display.variantArtName, UIImage(named: v) != nil {
+            return AnyView(Image(v).resizable().scaledToFit().frame(width: size, height: size))
+        }
         if UIImage(named: display.artName) != nil {
             return AnyView(Image(display.artName).resizable().scaledToFit().frame(width: size, height: size))
         }

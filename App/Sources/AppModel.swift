@@ -145,11 +145,11 @@ final class AppModel {
         case .regular(let r):
             let def = catalog.regular(r.giftId)
             let parts = (def?.name ?? "").split(separator: " ", maxSplits: 1)
-            return GiftDisplay(emoji: parts.first.map(String.init) ?? "🎁", artName: "gift_\(r.giftId)", title: parts.count > 1 ? String(parts[1]) : (def?.name ?? ""),
+            return GiftDisplay(emoji: parts.first.map(String.init) ?? "🎁", artName: "gift_\(r.giftId)", variantArtName: nil, title: parts.count > 1 ? String(parts[1]) : (def?.name ?? ""),
                                subtitle: "", rarity: nil, backdrop: nil, symbol: nil, isUpgraded: true, isCrafted: false, craftRarity: nil)
         case .unique(let u):
             let col = catalog.collection(u.collectionId)
-            return GiftDisplay(emoji: col?.emojiPlaceholder ?? "🎁", artName: "gift_\(u.collectionId)", title: col?.name ?? u.collectionId, subtitle: "#\(u.number)",
+            return GiftDisplay(emoji: col?.emojiPlaceholder ?? "🎁", artName: "gift_\(u.collectionId)", variantArtName: u.isUpgraded ? "gift_\(u.collectionId)__\(artSlug(AttributePools.model(u.modelId)?.name ?? ""))" : nil, title: col?.name ?? u.collectionId, subtitle: "#\(u.number)",
                                rarity: col?.tier, backdrop: u.isUpgraded ? AttributePools.backdrop(u.backdropId) : nil,
                                symbol: u.isUpgraded ? AttributePools.symbol(u.symbolId) : nil,
                                isUpgraded: u.isUpgraded, isCrafted: u.isCrafted, craftRarity: u.craftRarity)
@@ -160,6 +160,7 @@ final class AppModel {
 struct GiftDisplay {
     let emoji: String
     let artName: String
+    let variantArtName: String?
     let title: String
     let subtitle: String
     let rarity: Rarity?
@@ -183,4 +184,15 @@ final class DebugOffset { var seconds: TimeInterval = 0 }
 extension AppModel {
     /// Debug: сдвинуть игровое время вперёд.
     func debugAdvance(hours: Double) { debugBox.seconds += hours * 3600; changed() }
+}
+
+/// Совпадает с slug() в tools/*.py: нижний регистр, всё кроме a-z0-9 → «_».
+func artSlug(_ s: String) -> String {
+    var out = "", lastUnderscore = true
+    for ch in s.lowercased() {
+        if ch.isASCII && (ch.isLetter || ch.isNumber) { out.append(ch); lastUnderscore = false }
+        else if !lastUnderscore { out.append("_"); lastUnderscore = true }
+    }
+    while out.hasSuffix("_") { out.removeLast() }
+    return out
 }
