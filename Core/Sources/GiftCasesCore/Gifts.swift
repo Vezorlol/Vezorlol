@@ -24,6 +24,9 @@ public struct RegularItem: Codable, Identifiable, Hashable, Sendable {
     public let id: UUID
     public let giftId: String
     public var acquiredAt: Date
+    public init(id: UUID, giftId: String, acquiredAt: Date) {
+        self.id = id; self.giftId = giftId; self.acquiredAt = acquiredAt
+    }
 }
 
 public enum AnyGift: Hashable, Sendable {

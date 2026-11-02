@@ -137,7 +137,9 @@ struct GiftDetailSheet: View {
 
     @ViewBuilder private func attributesTable(_ u: UniqueGift, _ col: GiftCollection) -> some View {
         let supply = model.rules.supply(of: col.tier)
-        let issued = max(u.number, Int(Double(supply) * (0.4 + 0.5 * Double(stableHash64(col.id) % 100) / 100)))
+        let hashPart: Double = Double(stableHash64(col.id) % 100) / 100.0
+        let share: Double = 0.4 + 0.5 * hashPart
+        let issued: Int = max(u.number, Int(Double(supply) * share))
         VStack(spacing: 10) {
             if u.isUpgraded {
                 if u.isCrafted, let cr = u.craftRarity { row("Модель", "Crafted · \(cr.title)", color: cr.color) }
