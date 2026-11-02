@@ -53,7 +53,7 @@ async def main():
             print("ok", col["title"], len(col["models"]), "models", len(col["patterns"]), "patterns")
             await asyncio.sleep(0.4)
         out["backdrops"] = list(out["backdrops"].values())
-        json.dump(out, open("telegram_gift_attributes.json", "w"), ensure_ascii=False, indent=1)
+        json.dump(out, open("telegram_gift_attributes.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
         print("saved telegram_gift_attributes.json")
 
 asyncio.run(main())
